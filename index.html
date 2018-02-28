@@ -19,54 +19,69 @@
       <div data-role="navbar" class="ui-body-a">
          <ul>
            <li><a href="#home" class="ui-btn-active ui-state-persist">Home</a></li>
-           <li><a href="#contacts">Contact</a></li>
+           <li><a href="#contact">Contact</a></li>
          </ul>
       </div><!-- /navbar -->
   </div><!-- /header -->
 
-
-
   <div role="main" class="ui-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <p class="oriFeedback">You are in portrait view</p>
+      <p class="swipeNotice">Swipe Me!</p>
+      <p class="oriFeedback"></p>
   </div><!-- /content -->
 
   <div data-role="footer">
       <h4>This is a footer</h4>
   </div><!-- /footer -->
-
 </div><!-- /page -->
 
-<div data-role="page" data-theme="a" data-content-theme="a" id="contacts">
+<div data-role="page" data-theme="a" data-content-theme="a" id="contact">
 
   <div data-role="header">
-      <h1>Contacts</h1>
+      <h1>Contact</h1>
+        <div data-role="navbar">
+           <ul>
+             <li><a href="#home">Home</a></li>
+             <li><a href="#contact" class="ui-btn-active ui-state-persist">Contact</a></li>
+           </ul>
+        </div><!-- /navbar -->
   </div><!-- /header -->
 
-  <div data-role="navbar">
-     <ul>
-       <li><a href="#home">Home</a></li>
-       <li><a href="#contacts" class="ui-btn-active ui-state-persist">Contact</a></li>
-     </ul>
-  </div><!-- /navbar -->
-
   <div role="main" class="ui-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <p class="oriFeedback">You are in portrait view</p>
+      <p class="swipeNotice">Swipe Me!</p>
+      <p class="oriFeedback"></p>
   </div><!-- /content -->
 
   <div data-role="footer">
       <h4>This is still a footer</h4>
   </div><!-- /footer -->
-
 </div><!-- /page -->
 
   <script type="text/javascript">
-    $(window).on("orientationchange", function (event){
+    $(document).on("orientationchange", function (event){
       $(".oriFeedback").text("You are in " + event.orientation + " view")
     });
   </script>
+
+  <script type="text/javascript">
+    $(document).on("swiperight", function(event){
+      $(".swipeNotice").text("You swiped right!")
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).on("swipeleft", function(event){
+      $(".swipeNotice").text("You swiped left!")
+    });
+  </script>
+
+  <script type="text/javascript">
+    if(window.innerHeight > window.innerWidth){
+      $(".oriFeedback").text("You are in portrait view");
+    }
+    else{
+      $(".oriFeedback").text("You are in landscape view");
+    }
+  </script>
+
 </body>
 </html>
